@@ -20,7 +20,7 @@ def processLine(recursively):
     return
 
 
-f = open("Day1Tests/Day1Input.txt", 'r')
+f = open("tests/Day1Input.txt", 'r')
 diff = 0
 reachedValues = dict()
 inputValues = list()
