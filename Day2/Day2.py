@@ -8,17 +8,15 @@ for line in open("tests/Day2Input.txt", "r"):
 
 for line in listOfLines:
     uniques = list(set(line.strip()))
-    tmpChar2Times = 0
-    tmpChar3Times = 0
+    update2 = True
+    update3 = True
     for char in uniques:
-        if line.count(char) == 2:
-            tmpChar2Times += 1
-        elif line.count(char) == 3:
-            tmpChar3Times += 1
-    if tmpChar2Times > 0:
-        char2Times += 1
-    if tmpChar3Times > 0:
-        char3Times += 1
+        if update2 and line.count(char) == 2:
+            char2Times += 1
+            update2 = False
+        elif update3 and line.count(char) == 3:
+            char3Times += 1
+            update3 = False
 
     for line2 in listOfLines:
         listOfDiff = list(enumerate(difflib.ndiff(line,line2)))
